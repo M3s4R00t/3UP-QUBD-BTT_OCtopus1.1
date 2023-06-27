@@ -1,0 +1,9 @@
+M104 S0 ; Extruder off
+M140 S0 ; Heatbed off
+M107 ; Fan off
+G91 ; Relative!!
+G0  Z+20 F6000 ; lift print head
+G90 ;
+G0 X45. Y190. F6000 ;  Move print head to starting position
+M84 ; disable stepper motors
+SET_PIN PIN=PS_ON_OFF VALUE=0 ; shut down the printer
