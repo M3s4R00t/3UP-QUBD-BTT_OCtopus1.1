@@ -1,15 +1,15 @@
 G90 ; Set the positioning to absolute mode. This means that subsequent movement commands will be interpreted as absolute coordinates from the printer's origin.
-    G28 X Y ; Home the X and Y axes of the printer. This moves the print head to the origin (0,0) on the X and Y axes.
-    M400 ; Wait for all previous commands to complete before proceeding.
-    M140 S38 ; Set the bed temperature to 30 degrees Celsius. This command is used to preheat the print bed to the specified temperature.
-    M82 ; Set the extruder to absolute mode. This means that subsequent extrusion commands will be interpreted as absolute positions.
-    G0 X45. Y190. F6000 ; Move the print head to the coordinates X=45 and Y=190 at a feed rate of 100mm/min.
-    SET_HEATER_TEMPERATURE HEATER=extruder TARGET={first_layer_temperature[initial_extruder]} ; Set the target temperature for the extruder to the value specified by first_layer_temperature[initial_extruder].
-    TEMPERATURE_WAIT SENSOR=extruder MINIMUM={first_layer_temperature[initial_extruder]} MAXIMUM={first_layer_temperature[initial_extruder]+20} ; Wait until the extruder temperature reaches a minimum of first_layer_temperature[initial_extruder] and a maximum of first_layer_temperature[initial_extruder]+20.
-    G28 Z ; Home the Z axis of the printer. This moves the print head to the origin (0) on the Z axis.
-    G0 Z.345 ; Move the Z axis to a height of 0.345mm. This command raises the print head to a specific height.
-    G1 E8. F300 ; Extrude 8mm of filament at a feed rate of 40mm/min.
-    G1 X95 F1000 ; Move the print head to the X coordinate 95 at a feed rate of 40mm/min.
-    M400 ; Wait for all previous commands to complete before proceeding.
-    G0 Z5 ; Move the Z axis to a height of 5mm. 
+G28 X Y ; Home the X and Y axes of the printer. This moves the print head to the origin (0,0) on the X and Y axes.
+M400 ; Wait for all previous commands to complete before proceeding.
+M140 S38 ; Set the bed temperature to 30 degrees Celsius. This command is used to preheat the print bed to the specified temperature.
+M82 ; Set the extruder to absolute mode. This means that subsequent extrusion commands will be interpreted as absolute positions.
+G0 X45. Y190. F6000 ; Move the print head to the coordinates X=45 and Y=190 at a feed rate of 100mm/min.
+SET_HEATER_TEMPERATURE HEATER=extruder TARGET={first_layer_temperature[initial_extruder]} ; Set the target temperature for the extruder to the value specified by first_layer_temperature[initial_extruder].
+TEMPERATURE_WAIT SENSOR=extruder MINIMUM={first_layer_temperature[initial_extruder]} MAXIMUM={first_layer_temperature[initial_extruder]+20} ; Wait until the extruder temperature reaches a minimum of first_layer_temperature[initial_extruder] and a maximum of first_layer_temperature[initial_extruder]+20.
+G28 Z ; Home the Z axis of the printer. This moves the print head to the origin (0) on the Z axis.
+G0 Z.345 ; Move the Z axis to a height of 0.345mm. This command raises the print head to a specific height.
+G1 E8. F300 ; Extrude 8mm of filament at a feed rate of 40mm/min.
+G1 X95 F1000 ; Move the print head to the X coordinate 95 at a feed rate of 40mm/min.
+M400 ; Wait for all previous commands to complete before proceeding.
+G0 Z5 ; Move the Z axis to a height of 5mm. 
 ;
